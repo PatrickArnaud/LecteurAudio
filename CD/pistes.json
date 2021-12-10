@@ -1,0 +1,44 @@
+{
+"playlist":[
+{
+    "id": 1,
+    "titre": "A fifth of Beethoven",
+    "auteur":"Walter Murphy",
+    "pochette":"./CD/Walter.png",
+    "visuel": "Walter.jpg",
+    "src":"./musique/aFifthOfBeethoven.mp3" 
+},
+{
+    "id": 2,
+    "titre": "Les cornichons",
+    "auteur":"Nino Ferrer",
+    "pochette":"./CD/Ferrer.png",
+    "visuel": "Nino.jpg",
+    "src":"./musique/lesCornichons.mp3" 
+},
+{
+    "id": 3,
+    "titre": "Rhum Pomme",
+    "auteur":"Juliette",
+    "pochette":"./CD/Juliette.png",
+    "visuel": "Juliette.jpg",
+    "src":"./musique/rhumPomme.mp3" 
+},
+{
+    "id": 4,
+    "titre": "Pilule",
+    "auteur":"Damien Saez",
+    "pochette":"./CD/Saez.png",
+    "visuel": "Saez.jpg",
+    "src":"./musique/pilules.mp3" 
+},
+{
+    "id": 5,
+    "titre": "Something to happen",
+    "auteur":"Polar Shelter",
+    "pochette":"./CD/Polar.png",
+    "visuel": "Polar.jpg",
+    "src":"./musique/somethingToHappen.mp3" 
+}
+]}
+

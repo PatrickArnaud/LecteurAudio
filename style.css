@@ -1,0 +1,299 @@
+reset Css 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+.player {
+    position: absolute;
+    background-color: darkgray;
+    width: 650px;
+    height: 500px;
+    border: solid 1px #0add08;
+} 
+
+.title {
+margin-left: 75px;
+}
+
+.disk {
+margin-left: 50px;
+
+}
+
+.size {
+    width: 300px;
+    height: 300px;
+}
+
+.control {
+    position: absolute;
+    margin-left:120px;
+    margin-top: 360px;
+    width: 300px;
+}
+
+li {
+    list-style: none;
+    text-align: center;
+    border-bottom: 1px #0add08 solid;
+}
+
+li:hover {
+font-size: 20px;
+border-radius: 10px;
+cursor: pointer;}
+
+
+button {
+    width: 50px;
+    background-color: black;
+    color: #0add08;
+    border-radius: 3px;    
+    box-shadow: 0 .25em .2em #0add08,inset 0 0 1em .25em rgb(27, 27, 27);
+
+}
+
+.cd {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 30px;
+    width: 300px;
+    height: 300px;
+}
+
+.cdTurn {
+    animation: linear turn 3s infinite;
+    box-shadow: 3px;
+
+}
+
+@keyframes turn {
+    from 
+    {
+       rotate:  0deg ;
+    } 
+    50%  
+    { rotate: 180deg; 
+    } to 
+    {
+    rotate: 360deg;
+    }
+    }
+
+    @keyframes buttonRoll {
+        from 
+        {
+           rotate:  0deg ;
+        } 
+        33%  
+        { 
+        rotate: 5deg; 
+        }         
+        66%  
+        { rotate: -5deg; 
+        } to 
+        {
+        rotate: 0deg;
+        }
+        }
+
+
+  button:hover {
+    animation: linear buttonRoll 2s ;
+
+  }      
+
+.playlist {
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    border: solid 1px #0add08;
+    border-style: border-box;  
+    margin-left: 370px;
+    margin-top: 5px;
+    border-radius: 15px;
+    box-shadow: 0 .25em .2em #0add08,inset 0 0 1em .25em rgb(27, 27, 27);
+
+}
+
+.progressBar {
+    position: absolute;
+    width: 250px;
+    margin-left: 75px;
+    margin-top: 340px;
+    box-shadow: 0 .25em .2em #0add08,inset 0 0 1em .25em rgb(27, 27, 27);
+
+}
+.volumeBar {
+    position: absolute;
+    width: 250px;
+    rotate: 270deg;
+    margin-left: -100px;
+    margin-top: 175px;
+    box-shadow: -0.25em 0em 0.25em #0add08,inset 0 0 1em .25em rgb(27, 27, 27);}
+
+.currentSong {
+    position: absolute;
+    display: inline;
+    margin-left: 75px;
+    margin-top: 5px;
+    width: 250px;
+	text-align:left;
+	height:22px;
+    max-width: 30em;                      /* largeur de la fenêtre */
+  border: 1px solid #0add08;
+  overflow: hidden;                     /* masque tout ce qui dépasse */
+  box-shadow: 0 .25em .2em #0add08,inset 0 0 1em .25em rgb(27, 27, 27);
+  white-space: nowrap; 
+}
+
+
+.song {
+	animation:linear translateTitle 7s infinite ;
+}
+
+@keyframes translateTitle {
+    0%, 100% {margin-left:0;}
+    99.99% {margin-left:100%;}
+}
+
+.totalTime {
+    position: absolute;
+    margin-top: 360px;
+    margin-left: 300px;
+}
+
+.currentTime {
+    position: absolute;
+    margin-top: 360px;
+    margin-left: 40px;
+
+}
+
+.mute{
+    position: absolute;
+    margin-top: 35px;
+}
+
+
+ 
+input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: #0add08;
+    cursor: pointer;
+    border: 1px solid #0add08;
+    outline:none;
+  }
+  input[type="range"]::-moz-range-progress {
+    background-color: rgb(70, 70, 70);
+      height: 100%;
+      border: 1px solid #0add08;
+
+  }
+  input[type="range"]::-moz-range-track {  
+    background-color: rgb(3, 3, 3);
+    border: 1px solid #0add08;
+      height: 100%;
+      
+  }
+
+  .container {
+      height: 400px;
+      width: 630px;
+      border-radius: 10px;
+      background-image: url("fond.jpg");
+      box-shadow: 0 .25em .2em #0add08,inset 0 0 1em .25em rgb(27, 27, 27);
+
+  }
+
+  li,span {
+      color: gold;
+  }
+
+  #canvas {
+    
+    position: absolute;
+    height: 50px;
+    width: 250px;
+    margin-top: 170px;
+    margin-left: 370px;
+    border-radius: 10px;
+    border: #0add08 1px solid;
+    background-size:     cover;           
+    box-shadow: 0 .25em .2em #0add08,inset 0 0 1em .25em rgb(27, 27, 27);
+          
+  }
+
+  .colorBar {
+      z-index: 1;
+      position: absolute;
+      margin-top: 175px;
+      margin-left: 376px;
+      width: 240px;
+      height : 5px;
+  }
+
+  .album {
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    border: solid 1px #0add08;
+    border-style: border-box;  
+    margin-left: 370px;
+    margin-top: 235px;
+    border-radius: 15px;
+    box-shadow: 0 .25em .2em #0add08,inset 0 0 1em .25em rgb(27, 27, 27);
+    background: cover;
+    overflow: hidden;
+   
+}
+
+
+
+.visuel {
+    max-width: 100%;
+    display: block;
+    
+}
