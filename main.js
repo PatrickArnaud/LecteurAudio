@@ -103,7 +103,7 @@ function changeCurrentSong(src) {
     currentSongHTML.textContent = src;
 }
 function changeCurrentAlbum(src) {
-    visuelHTML.src = "./album/"+src;
+    visuelHTML.src = "./album/" + src;
 }
 
 
@@ -155,7 +155,8 @@ function playlist(jsonObj) {
     for (let index = 0; index < jsonObj.length; index++) {
         changeSourceAudio(jsonObj[0].src);
         changeCurrentSong(jsonObj[0].titre)
-        changeimageCD(jsonObj[0].pochette)
+        changeimageCD(jsonObj[0].pochette);
+        changeCurrentAlbum(jsonObj[0].visuel);
         const element = jsonObj[index];
         let titreEtAuteur = document.createElement("li");
         titreEtAuteur.textContent = element.titre + "  --  " + element.auteur;
@@ -167,9 +168,7 @@ function playlist(jsonObj) {
             play();
         })
         playlistHtml.appendChild(titreEtAuteur);
-
     }
-
 }
 
 /////////Affichage durée totale
@@ -177,8 +176,14 @@ function showDuration() {
     let totalTime = player.duration;
     let calc = parseInt(totalTime / 60);
     let calcSplit = parseInt(totalTime % 60);
-    let total = calc + "mn" + calcSplit + "sec";
-    totalTimeHTML.textContent = total;
+    if (calc == isNaN && calcSplit == isNaN) {
+        let total = "--mn--sec";
+        totalTimeHTML.textContent = total;
+    } else {
+       
+        let total = calc + "mn" + calcSplit + "sec";
+        totalTimeHTML.textContent = total;
+    }
 }
 
 /////////Affichage durée en cours
@@ -192,55 +197,55 @@ function currentDuration() {
 
 
 
-///////Visuel
-function visu() {
-    let context = new AudioContext();
-    let src = context.createMediaElementSource(player);
-    let analyser = context.createAnalyser();
-    let canvas = document.getElementById("canvas");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    let ctx = canvas.getContext("2d");
-    src.connect(analyser);
-    analyser.connect(context.destination);
-    analyser.fftSize = 256;
-    let bufferLength = analyser.frequencyBinCount;
-    let dataArray = new Uint8Array(bufferLength);
-    let WIDTH = canvas.width;
-    let HEIGHT = canvas.height;
-    let barWidth = (WIDTH / bufferLength);
-    let barHeight;
-    let x = 0;
-    function renderFrame() {
-        requestAnimationFrame(renderFrame);
-        x = 0;
-        let changeColor = color.value;
-        analyser.getByteFrequencyData(dataArray);
-        ctx.fillStyle = "#1d1c1c";
-        ctx.fillRect(0, 0, WIDTH, HEIGHT);
-        for (let i = 0; i < bufferLength; i++) {
-            barHeight = dataArray[i];
-            let testColor = color.value;
-            if (testColor < 50) {
-                let r = changeColor / 2 + barHeight + (25 * (i / bufferLength));
-                let g = 256 - volume.value;
-                let b = changeColor;
-                ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
-                ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
-                x += barWidth + 3;
-            } else {
-                let r = changeColor / 2 + barHeight + (25 * (i / bufferLength));
-                let g = 0 + volume.value;
-                let b = changeColor+100;
-                ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
-                ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
-                x += barWidth + 3;
-            }
-        }
-    }
-    player.play();
-    renderFrame();
-};
+// ///////Visuel
+// function visu() {
+//     let context = new AudioContext();
+//     let src = context.createMediaElementSource(player);
+//     let analyser = context.createAnalyser();
+//     let canvas = document.getElementById("canvas");
+//     canvas.width = window.innerWidth;
+//     canvas.height = window.innerHeight;
+//     let ctx = canvas.getContext("2d");
+//     src.connect(analyser);
+//     analyser.connect(context.destination);
+//     analyser.fftSize = 256;
+//     let bufferLength = analyser.frequencyBinCount;
+//     let dataArray = new Uint8Array(bufferLength);
+//     let WIDTH = canvas.width;
+//     let HEIGHT = canvas.height;
+//     let barWidth = (WIDTH / bufferLength);
+//     let barHeight;
+//     let x = 0;
+//     function renderFrame() {
+//         requestAnimationFrame(renderFrame);
+//         x = 0;
+//         let changeColor = color.value;
+//         analyser.getByteFrequencyData(dataArray);
+//         ctx.fillStyle = "#1d1c1c";
+//         ctx.fillRect(0, 0, WIDTH, HEIGHT);
+//         for (let i = 0; i < bufferLength; i++) {
+//             barHeight = dataArray[i];
+//             let testColor = color.value;
+//             if (testColor < 50) {
+//                 let r = changeColor / 2 + barHeight + (25 * (i / bufferLength));
+//                 let g = 256 - volume.value;
+//                 let b = changeColor;
+//                 ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+//                 ctx.fillRect(x, HEIGHT - barHeight * 2.5, barWidth, barHeight);
+//                 x += barWidth + 3;
+//             } else {
+//                 let r = changeColor / 2 + barHeight + (25 * (i / bufferLength));
+//                 let g = 0 + volume.value;
+//                 let b = changeColor + 100;
+//                 ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+//                 ctx.fillRect(x, HEIGHT - barHeight * 2.5, barWidth, barHeight);
+//                 x += barWidth;
+//             }
+//         }
+//     }
+//     player.play();
+//     renderFrame();
+// };
 
 //////LISTENER
 
@@ -272,7 +277,7 @@ volume.addEventListener('input', (e) => {
 
 //////TEST COULEUR
 color.addEventListener('input', (e) => {
-    
+
     if (color.value < 50) {
         cssHTML.href = "style.css"
     } else {
