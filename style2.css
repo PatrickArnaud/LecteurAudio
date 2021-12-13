@@ -292,6 +292,15 @@ input[type="range"]::-moz-range-thumb {
 
 .visuel {
     max-width: 100%;
-    display: block;
-    
+    display: block;    
+}
+
+.styleBar {
+z-index: 1;
+position: absolute;
+margin-top: 195px;
+margin-left: 333px;
+width: 50px;
+height: 5px;
+rotate: 90deg;
 }

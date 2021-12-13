@@ -300,9 +300,10 @@ input[type="range"]::-moz-range-thumb {
 
 .styleBar {
     z-index: 1;
-    position: absolute;
-    margin-top: 205px;
-    margin-left: 376px;
-    width: 60px;
-    height : 5px;
+position: absolute;
+margin-top: 195px;
+margin-left: 333px;
+width: 50px;
+height: 5px;
+rotate: 90deg;
 }
