@@ -138,6 +138,9 @@ button {
         }
         }
 
+.container {
+position: absolute;
+        }
 
   button:hover {
     animation: linear buttonRoll 2s ;
@@ -200,14 +203,14 @@ button {
 
 .totalTime {
     position: absolute;
-    margin-top: 360px;
-    margin-left: 300px;
+    margin-top: 362px;
+    margin-left: 281px;
 }
 
 .currentTime {
     position: absolute;
-    margin-top: 360px;
-    margin-left: 40px;
+    margin-top: 362px;
+    margin-left: 53px;
 
 }
 

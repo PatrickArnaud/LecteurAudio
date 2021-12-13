@@ -9,32 +9,34 @@
     <link id="css" rel="stylesheet" href="style.css">
 </head>
 
-<body>    
-<div class="container">
-    <div class="currentSong"> <span class="song"  id="currentSong">--- --- --- --- --- ---</span>  </div>
-    <div ><img id="cd" class="cd" src="" alt="cd"></div>
-    <audio id="audioPlayer" src="./musique/aFifthOfBeethoven.mp3" >     
-    </audio>
-    <button id="mute" class="mute fas fa-volume-up"></button>
-    <input class="volumeBar" type="range" id="volumeBar" max="100" min="0" value="100"></input>  
-    <input class="progressBar" type="range" id="progressBar" max="100" min="0" value="0"></input> 
-    <span class="totalTime" id="totalTime"></span> 
-    <span class="currentTime" id="currentTime"></span> 
-    <input class="colorBar" type="range" id="colorBar" max="100" min="0" value="0"></input> 
-    <input id="styleBar" class="styleBar" type="range" id="colorBar" max="3" min="1" step="1" ></input> 
-    <div class="control"><button class="fas fa-fast-backward" id="controlPreview"></button>
-    <button class="fas fa-play" id="controlPlay"></button>
-    <button class="fas fa-fast-forward" id="controlNext"></button>
-</div>
-    <div class="playlist">
-        <ul id="playlist"></ul>
+<body>
+    <div class="container">
+        <div class="currentSong"> <span class="song" id="currentSong">--- --- --- --- --- ---</span> </div>
+        <div><img id="cd" class="cd" src="" alt="cd"></div>
+        <audio id="audioPlayer" src="./musique/aFifthOfBeethoven.mp3">
+        </audio>
+        <button id="mute" class="mute fas fa-volume-up"></button>
+        <input class="volumeBar" type="range" id="volumeBar" max="100" min="0" value="100"></input>
+        <input class="progressBar" type="range" id="progressBar" max="100" min="0" value="0"></input>
+        <span class="totalTime" id="totalTime"></span>
+        <span class="currentTime" id="currentTime"></span>
+        <input class="colorBar" type="range" id="colorBar" max="100" min="0" value="0"></input>
+        <input id="styleBar" class="styleBar" type="range" id="colorBar" max="2" min="1" step="1"></input>
+        <div class="control"><button class="fas fa-fast-backward" id="controlPreview"></button>
+            <button class="fas fa-play" id="controlPlay"></button>
+            <button class="fas fa-fast-forward" id="controlNext"></button>
+        </div>
+        <div class="playlist">
+            <ul id="playlist"></ul>
+        </div>
+        <div class="album">
+            <img class="visuel" id="visuel" src="" alt="pochette de l'album en cours">
+        </div>
+        <div id="content">
+            <canvas id="canvas"></canvas>
+        </div>
+        <canvas class="spectrogram"></canvas>
     </div>
-    <div class="album">
-        <img class="visuel" id="visuel" src="" alt="">
-    </div>
-    <div id="content">
-        <canvas id="canvas"></canvas>
-      </div>
 </body>
 
 <script src="https://kit.fontawesome.com/b02b54f52b.js" crossorigin="anonymous"></script>

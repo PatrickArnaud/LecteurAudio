@@ -18,8 +18,6 @@ let styleHTML = document.querySelector('#styleBar');
 let styleScript = document.querySelector('#style');
 
 
-
-
 ///////FONCTION ACTIVE
 
 //////son suivant
@@ -267,6 +265,7 @@ function visu() {
                 }
             }
         }
+
     }
     player.play();
     renderFrame();
@@ -356,4 +355,8 @@ fetch("pistes.json").then(response => {
         previousSong(response.playlist);
     })
 });
+
+//////sprectoragramme de fond
+
+
 
